@@ -157,7 +157,10 @@ while True:
 
             if event == 'Nova Referência':
                 if (imagem == ''.strip() or imagem == None or imagem == 0):
-                    imagem = sg.popup_get_file('Selecione onde está a foto (deixe vazio para não ter foto)')
+                    try:
+                        imagem = sg.popup_get_file('Selecione onde está a foto (deixe vazio para não ter foto)', BaseException=False)
+                    except:
+                        imagem = ''.strip()
                 ficha.append(imagem)
                 cliente.append(ficha.copy())
                 ficha.clear()
@@ -169,7 +172,10 @@ while True:
 
             if event == 'Finalizar':
                 if(imagem == ''.strip() or imagem == None or imagem == 0): 
-                    imagem = sg.popup_get_file('Selecione onde está a foto (deixe vazio para não ter foto)')
+                    try:
+                        imagem = sg.popup_get_file('Selecione onde está a foto (deixe vazio para não ter foto)', BaseException=False)
+                    except:
+                        imagem = ''.strip()
                 ficha.append(imagem)
                 cliente.append(ficha.copy())
                 ficha.clear()
